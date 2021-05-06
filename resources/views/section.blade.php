@@ -6,26 +6,30 @@
 
     <div class="my-5">
         <h3>Voitures rouge</h3>
-        @foreach ($voitures as $item)
+        @forelse ($voitures as $item)
             @if ($item->color_id == 1)
                 <p>{{ $item->marque }}</p>
             @endif
-        @endforeach
-    
+        @empty
+            <p>pas de voiture rouge dispo</p>
+        @endforelse
+
         <h3>Voitures bleu</h3>
-        @foreach ($voitures as $item)
+        @forelse ($voitures as $item)
             @if ($item->color_id == 2)
-            <p>{{ $item->marque }}</p>
+                <p>{{ $item->marque }}</p>
             @endif
-        @endforeach
-    
-        <h3>Autre couleur</h3>
-        @foreach ($voitures as $item)
+        @empty
+            <p>pas de voiture bleu dispo</p>
+        @endforelse
+
+        <h3>Autre voiture couleur</h3>
+        @forelse ($voitures as $item)
             @if ($item->color_id != 1 && $item->color_id != 2)
                 <p>{{ $item->marque }}</p>
             @endif
-        @endforeach
+        @empty
+            <p>aucune voiture dispo</p>
+        @endforelse
     </div>
-
-    
 @endsection
