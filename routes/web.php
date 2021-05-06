@@ -25,5 +25,5 @@ Route::resource('color', ColorController::class);
 
 Route::get('/section', function () {
     $voitures = Voiture::all();
-    return view('section', compact('voitures'));
+    return view('pages.section', compact('voitures'));
 })->name('section');
